@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply text-gray-900 bg-gray-50;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  #root { height: 100vh; display: flex; flex-direction: column; }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-gray-200
+           text-sm font-medium text-gray-700 bg-white hover:bg-gray-50
+           transition-colors duration-150 cursor-pointer select-none;
+  }
+  .btn-primary {
+    @apply bg-brand-600 text-white border-brand-600 hover:bg-brand-700;
+  }
+  .btn-danger {
+    @apply bg-red-50 text-red-700 border-red-200 hover:bg-red-100;
+  }
+  .btn-sm {
+    @apply px-2 py-1 text-xs;
+  }
+  .input {
+    @apply w-full border border-gray-200 rounded-md px-3 py-2 text-sm
+           bg-gray-50 focus:outline-none focus:border-brand-500
+           focus:ring-2 focus:ring-brand-500/20 transition-colors;
+  }
+  .label {
+    @apply block text-xs font-medium text-gray-500 mb-1;
+  }
+  .card {
+    @apply bg-white rounded-lg border border-gray-200 overflow-hidden;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-medium;
+  }
+}
+
+/* MapLibre overrides */
+.maplibregl-ctrl-attrib-button { display: none !important; }
+.maplibregl-ctrl-attrib-inner a[href*="maplibre"] { display: none !important; }
+.maplibregl-attribution-flag { display: none !important; }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
