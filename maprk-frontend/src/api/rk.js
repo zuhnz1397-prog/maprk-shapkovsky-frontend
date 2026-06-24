@@ -3,7 +3,7 @@ import axios from 'axios'
 
 // Публичные
 export const getMapData = () =>
-  axios.get('/api/rk/map').then(r => r.data)
+  axios.get('/api/rk/map').then(r => Array.isArray(r.data) ? r.data : (r.data?.features || r.data?.items || []))
 
 // Админские
 export const getRKList = (params) =>
