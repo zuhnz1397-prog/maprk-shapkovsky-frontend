@@ -1,9 +1,8 @@
 import client from './client'
-import axios from 'axios'
 
 // Публичные
 export const getMapData = () =>
-  axios.get('/api/rk/map').then(r => Array.isArray(r.data) ? r.data : (r.data?.features || r.data?.items || []))
+  client.get('/rk/map').then(r => Array.isArray(r.data) ? r.data : (r.data?.features || r.data?.items || []))
 
 // Админские
 export const getRKList = (params) =>
@@ -37,7 +36,7 @@ export const uploadScheme = (pk, file) => {
 }
 
 export const login = (username, password) =>
-  axios.post('/api/auth/login', { username, password }).then(r => r.data)
+  client.post('/auth/login', { username, password }).then(r => r.data)
 
 export const exportPDF = () =>
   client.get('/rk/export/pdf', { responseType: 'blob' }).then(r => r.data)
