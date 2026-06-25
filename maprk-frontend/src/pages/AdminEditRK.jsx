@@ -26,7 +26,7 @@ export default function AdminEditRK() {
       return updated
     },
     onSuccess: (data) => {
-      toast.success(`РК ${data.rk_id} обновлена! Паспорт перегенерирован.`)
+      toast.success(`РК ${data.rk_id} обновлена!`)
       qc.invalidateQueries(['rk-list'])
       qc.invalidateQueries(['rk-detail', pk])
       navigate('/admin/registry')
@@ -53,7 +53,7 @@ export default function AdminEditRK() {
           Редактировать РК № {rk?.rk_id}
         </h1>
         <div className="ml-auto text-xs text-gray-400">
-          Паспорт будет перегенерирован автоматически
+          id: {pk}
         </div>
       </div>
 
