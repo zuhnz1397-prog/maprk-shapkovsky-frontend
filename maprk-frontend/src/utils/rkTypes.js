@@ -1,10 +1,12 @@
 export const RK_TYPES = {
-  'Билборд':           { color: '#e74c3c', label: 'Билборд' },
-  'Сити-формат':       { color: '#2980b9', label: 'Сити-формат' },
-  'Билборд-динамика':  { color: '#e67e22', label: 'Билборд-динамика' },
-  'Афиша':             { color: '#8e44ad', label: 'Афиша' },
-  'Панель-кронштейн':  { color: '#27ae60', label: 'Панель-кронштейн' },
-  'Прочее':            { color: '#7f8c8d', label: 'Прочее' },
+  'Билборд':            { color: '#e74c3c', label: 'Билборд' },
+  'Сити-формат':        { color: '#2980b9', label: 'Сити-формат' },
+  'Билборд-динамика':   { color: '#e67e22', label: 'Билборд-динамика' },
+  'Афиша':              { color: '#8e44ad', label: 'Афиша' },
+  'Панель-кронштейн':   { color: '#27ae60', label: 'Панель-кронштейн' },
+  'Цифровой билборд':   { color: '#16a085', label: 'Цифровой билборд' },
+  'Остановочный пункт': { color: '#f39c12', label: 'Остановочный пункт' },
+  'Прочее':             { color: '#7f8c8d', label: 'Прочее' },
 }
 
 export const TYPE_OPTIONS = Object.entries(RK_TYPES).map(([value, { label }]) => ({
@@ -70,6 +72,20 @@ export function makeMarkerSVG(typeRk, active = false, zoom = 12) {
     'Настенный щит': `<svg width="${s}" height="${Math.round(s*0.8)}" viewBox="0 0 14 11" fill="none" style="${shadow}" xmlns="http://www.w3.org/2000/svg">
       <rect x="1" y="1" width="12" height="2" rx="0.5" fill="${c}" opacity="0.75" ${border}/>
       <rect x="1" y="3" width="12" height="7" rx="1.2" fill="${c}" ${border}/>
+    </svg>`,
+    'Цифровой билборд': `<svg width="${s}" height="${s+4}" viewBox="0 0 14 18" fill="none" style="${shadow}" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="12" height="8" rx="1.5" fill="${c}" ${border}/>
+      <circle cx="4.5" cy="5" r="1" fill="rgba(255,255,255,.9)"/>
+      <circle cx="7" cy="5" r="1" fill="rgba(255,255,255,.9)"/>
+      <circle cx="9.5" cy="5" r="1" fill="rgba(255,255,255,.9)"/>
+      <line x1="7" y1="9" x2="7" y2="17" stroke="${c}" stroke-width="2" stroke-linecap="round"/>
+      <line x1="4" y1="17" x2="10" y2="17" stroke="${c}" stroke-width="1.5" stroke-linecap="round"/>
+    </svg>`,
+    'Остановочный пункт': `<svg width="${s}" height="${s+2}" viewBox="0 0 14 16" fill="none" style="${shadow}" xmlns="http://www.w3.org/2000/svg">
+      <rect x="1" y="1" width="12" height="2.5" rx="0.8" fill="${c}" ${border}/>
+      <rect x="1.5" y="3.5" width="2" height="10" rx="0.5" fill="${c}" ${border}/>
+      <rect x="10.5" y="3.5" width="2" height="10" rx="0.5" fill="${c}" ${border}/>
+      <rect x="1.5" y="10" width="11" height="2" rx="0.5" fill="${c}" ${border}/>
     </svg>`,
   }
 
