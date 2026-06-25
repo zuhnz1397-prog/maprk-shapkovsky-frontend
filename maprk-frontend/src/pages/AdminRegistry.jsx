@@ -33,10 +33,15 @@ export default function AdminRegistry() {
     deleteMut.mutate(pk)
   }
 
-  const handlePassport = async (pk, rkId) => {
+  const handlePassport = async (pk, rkId, passportPath) => {
+    // If we have a real Supabase URL — open directly
+    if (passportPath && passportPath.startsWith('http')) {
+      window.open(passportPath, '_blank', 'noreferrer')
+      return
+    }
     try {
       const blob = await downloadPassport(pk)
-      downloadBlob(blob, `паспорт_${rkId}.pdf`)
+      downloadBlob(blob, `pasport_${rkId}.pdf`)
     } catch {
       toast.error('Ошибка загрузки паспорта')
     }
@@ -143,7 +148,7 @@ export default function AdminRegistry() {
                   </td>
                   <td className="px-3 py-2.5">
                     {rk.passport_path ? (
-                      <button onClick={() => handlePassport(rk.id, rk.rk_id)}
+                      <button onClick={() => handlePassport(rk.id, rk.rk_id, rk.passport_path)}
                         className="text-brand-600 hover:text-brand-800 transition-colors"
                         title="Скачать паспорт">
                         <Download className="w-4 h-4" />

@@ -224,15 +224,15 @@ export default function MapPage() {
                 </div>
               )}
 
-              {selected.has_passport ? (
-                <a href={`/api/rk/${selected.id}/passport/pdf`} target="_blank" rel="noreferrer"
+              {selected.has_passport && selected.passport_path ? (
+                <a href={selected.passport_path} target="_blank" rel="noreferrer"
                   className="btn btn-primary w-full justify-center py-2.5 text-sm">
                   <FileText className="w-4 h-4" />
                   Открыть паспорт РК
                 </a>
               ) : (
                 <div className="w-full py-2.5 text-center text-xs text-gray-400 border border-dashed border-gray-200 rounded-lg">
-                  Паспорт не предусмотрен
+                  Паспорт не загружен
                 </div>
               )}
             </div>
