@@ -1,12 +1,13 @@
 export const RK_TYPES = {
   'Билборд':            { color: '#e74c3c', label: 'Билборд' },
   'Сити-формат':        { color: '#2980b9', label: 'Сити-формат' },
-  'Билборд-динамика':   { color: '#e67e22', label: 'Билборд-динамика' },
+  'Билборд динамика':   { color: '#e67e22', label: 'Билборд динамика' },
+  'Цифровой билборд':   { color: '#16a085', label: 'Цифровой билборд' },
   'Афиша':              { color: '#8e44ad', label: 'Афиша' },
   'Панель-кронштейн':   { color: '#27ae60', label: 'Панель-кронштейн' },
-  'Цифровой билборд':   { color: '#16a085', label: 'Цифровой билборд' },
   'Остановочный пункт': { color: '#f39c12', label: 'Остановочный пункт' },
-  'Прочее':             { color: '#7f8c8d', label: 'Прочее' },
+  'Настенный щит':      { color: '#7f8c8d', label: 'Настенный щит' },
+  'Прочее':             { color: '#95a5a6', label: 'Прочее' },
 }
 
 export const TYPE_OPTIONS = Object.entries(RK_TYPES).map(([value, { label }]) => ({
@@ -38,7 +39,7 @@ export function makeMarkerSVG(typeRk, active = false, zoom = 12) {
       <rect x="1" y="1" width="8" height="11" rx="1.5" fill="${c}" ${border}/>
       <line x1="5" y1="12" x2="5" y2="17" stroke="${c}" stroke-width="2" stroke-linecap="round"/>
     </svg>`,
-    'Билборд-динамика': `<svg width="${s}" height="${s+4}" viewBox="0 0 14 18" fill="none" style="${shadow}" xmlns="http://www.w3.org/2000/svg">
+    'Билборд динамика': `<svg width="${s}" height="${s+4}" viewBox="0 0 14 18" fill="none" style="${shadow}" xmlns="http://www.w3.org/2000/svg">
       <rect x="1" y="1" width="12" height="8" rx="1.5" fill="${c}" ${border}/>
       <polygon points="5,3 5,7 10,5" fill="rgba(255,255,255,.85)"/>
       <line x1="7" y1="9" x2="7" y2="17" stroke="${c}" stroke-width="2" stroke-linecap="round"/>
